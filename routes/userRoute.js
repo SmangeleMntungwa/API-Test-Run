@@ -14,12 +14,10 @@ router.get("/", (req, res) => {
 });
 
 router.post('/', (req, res) => {
-const {email, password, fullname, billing_address, default_shipping_address, country, phone, user_type } = req.body
-});
-
+const {email, password, full_name, billing_address, default_shipping_address, country, phone, user_type } = req.body
 try{
 con.query(
-  `INSERT INTO users ('${email}', '${password}','${fullname}','${billing_address}', '${default_shipping_address}', '${country}',' ${phone}', '${user_type}')`,
+  `INSERT INTO users (email,password,full_name,billing_address,default_shipping_address,country,phone,user_type) VALUES('${email}', '${password}','${full_name}','${billing_address}', '${default_shipping_address}', '${country}',' ${phone}', '${user_type}')`,
  (err, result) => {
       if (err) throw err;
       res.send(result);
@@ -28,5 +26,7 @@ con.query(
 } catch (error) {
   console.log(error);
 };
+});
+
 
 module.exports = router;
