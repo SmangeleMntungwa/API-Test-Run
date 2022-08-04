@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Displaying all users</title>
+</head>
+
+<body>
+    <h1>Displaying all users</h1>
+    <ul class="users"></ul>
+</body>
+<script>
+    // define array
+    let allUsers = []
+    //fetch data
+    fetch("http://localhost:6969/users")
+        .then(res => res.json())
+        .then(data => {
+            allUsers = data,
+                console.log(allUsers)
+            //display
+            function showUsers() {
+                document.querySelector(".users").innerHTML = '';
+                //loop over them
+                allUsers.forEach((user, index) => {
+                    document.querySelector('.users').innerHTML += `
+        <li>${user.full_name}</li> `
+                });
+            }
+            //call display
+            showUsers();
+        }
+        );
+</script>
+
+</html>
