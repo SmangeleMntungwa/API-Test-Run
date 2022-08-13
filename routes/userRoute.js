@@ -47,6 +47,7 @@ const jwt = require('jsonwebtoken');
 //     console.log(error);
 //   }
 // });
+
 // Login
 router.post("/login", (req, res) => {
   try {
