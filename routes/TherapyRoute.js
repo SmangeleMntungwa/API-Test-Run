@@ -4,7 +4,7 @@ const con = require("../lib/dbConnections");
 
 router.get("/", (req, res) => {
   try {
-    con.query("SELECT * FROM orders", (err, result) => {
+    con.query("SELECT * FROM Therapy", (err, result) => {
       if (err) throw err;
       res.send(result);
     });
@@ -14,10 +14,10 @@ router.get("/", (req, res) => {
 });
 
 router.post('/', (req, res) => {
-const {user_id, amount, shipping_address, order_email, order_date, order_status} = req.body
+const {Therapy_id, Therapy_description, Therapy_category, Therapy_image} = req.body
 try{
 con.query(
-  `INSERT INTO orders (user_id,amount,shipping_address,order_email,order_date,order_status) VALUES('${user_id}', '${amount}','${shipping_address}','${order_email}', '${order_date}', '${order_status}')`,
+  `INSERT INTO Therapy (Therapy_id,Therapy_description,Therapy_category,Therapy_image,) VALUES('${Therapy_id}', '${Therapy_description}','${Therapy_category}','${Therapy_image}')`,
  (err, result) => {
       if (err) throw err;
       res.send(result);
@@ -30,7 +30,7 @@ con.query(
 
 router.delete("/:id", (req, res) => {
     try {
-        con.query(`DELETE  FROM orders WHERE user_id =${req.params.id}`, (err, result) => {
+        con.query(`DELETE  FROM Therapy WHERE Patient_id =${req.params.id}`, (err, result) => {
             if (err) throw err;
             res.send(result);
         });
@@ -39,8 +39,6 @@ router.delete("/:id", (req, res) => {
         res.status(400).send(error)
     }
 });
-
-
  
 
 module.exports = router;

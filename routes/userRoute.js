@@ -3,50 +3,7 @@ const router = express.Router();
 const con = require("../lib/dbConnections");
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-//const middleware = require("../middleware/auth");
 
-// Register Route
-// The Route where Encryption starts
-
-// router.post("/register", (req, res) => {
-//  try { 
-
-//     let sql = "INSERT INTO users SET ?";
-//     // This is the body in requesting
-//     const {
-//       full_name,
-//       email,
-//       password,
-//       user_type,
-//       phone,
-//       country,
-//       billing_address,
-//       default_shipping_address,
-//     } = req.body;
-//     // The start of hashing / encryption
-    
-
-//     let user = {
-//       full_name,
-//       email,
-//       // We sending the hash value to be stored witin the table
-//       password:hash,
-//       user_type,
-//       phone,
-//       country,
-//       billing_address,
-//       default_shipping_address,
-//     };
-//     // connection to the database
-//     con.query(sql, user, (err, result) => {
-//       if (err) throw err;
-//       console.log(result);
-//       res.send(`User ${(user.full_name, user.email)} created successfully`);
-//     });
-//   } catch (error) {
-//     console.log(error);
-//   }
-// });
 
 // Login
 router.post("/login", (req, res) => {

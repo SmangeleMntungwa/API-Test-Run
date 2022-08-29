@@ -10,7 +10,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^5.0.1",
     "bcryptjs": "^2.4.3",
+    "body-parser": "^1.20.0",
     "config": "^3.3.7",
     "cors": "^2.8.5",
     "dotenv": "^16.0.1",
@@ -30,5 +32,8 @@
     "url": "https://github.com/SmangeleMntungwa/API-Test-Run/issues"
   },
   "homepage": "https://github.com/SmangeleMntungwa/API-Test-Run#readme",
-  "description": ""
+  "description": "",
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  }
 }
